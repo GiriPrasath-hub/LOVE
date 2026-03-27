@@ -1,0 +1,9 @@
+# love_v4 dependencies
+# love_core must be importable (add its parent dir to PYTHONPATH or install it)
+
+customtkinter>=5.2.0
+SpeechRecognition>=3.10.0
+pyttsx3>=2.90
+PyAudio>=0.2.14
+pyautogui>=0.9.54
+psutil>=5.9.0

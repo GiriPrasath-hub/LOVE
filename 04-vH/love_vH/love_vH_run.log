@@ -1,0 +1,310 @@
+# LOVE vH Training Log — started 2026-03-22T02:36:53.263979
+
+  [Ep001 T1] diff=medium mood=confused tone=friendly reward= +32.5 correct=Y acc=1.0 tone_score=6.0 done=N
+          User:  Open the thing... the blue one? With the bird logo?
+          Agent: Alright! Opening the app for you right now!
+  [Ep001 T2] diff=medium mood=confused tone=formal   reward= +18.5 correct=Y acc=1.0 tone_score=-8.0 done=N
+          User:  Hm... could you be more specific?
+          Agent: Certainly. Of course! Starting the app right away.
+  [Ep001 T3] diff=medium mood=confused tone=friendly reward= +23.5 correct=N acc=0.5 tone_score=6.0 done=N
+          User:  Hm... could you be more specific?
+          Agent: Hey! Opening the app for you right now!
+  [Ep001 T4] diff=medium mood=confused tone=friendly reward= +25.0 correct=N acc=0.5 tone_score=6.0 done=Y
+          User:  Hm... could you be more specific?
+          Agent: Alright! I'm opening the app for you. Let me know if yo
+
+========================================================================
+  Episode 001 finished | difficulty=medium | total_reward= +99.50  ★★★★★★★★★★
+========================================================================
+
+  [Ep002 T1] diff=medium mood=happy    tone=friendly reward= +34.0 correct=Y acc=1.0 tone_score=6.0 done=N
+          User:  Can you look up something for me? I forgot the name tho
+          Agent: Hey! Searching Google for that right now. I'll bring up
+  [Ep002 T2] diff=medium mood=happy    tone=friendly reward= +34.0 correct=Y acc=1.0 tone_score=6.0 done=N
+          User:  Perfect. Now can you help with something else?
+          Agent: Of course! I can assist with tasks, apps, and informati
+  [Ep002 T3] diff=medium mood=happy    tone=friendly reward= +34.0 correct=Y acc=1.0 tone_score=6.0 done=N
+          User:  Perfect. Now can you help with something else?
+          Agent: Sure! I can help with many things like search, apps, re
+  [Ep002 T4] diff=medium mood=happy    tone=friendly reward= +34.0 correct=Y acc=1.0 tone_score=6.0 done=Y
+          User:  Perfect. Now can you help with something else?
+          Agent: Sure! I can assist with tasks, apps, and information. T
+
+========================================================================
+  Episode 002 finished | difficulty=medium | total_reward=+136.00  ★★★★★★★★★★
+========================================================================
+
+  [Ep003 T1] diff=hard   mood=happy    tone=friendly reward=  +7.0 correct=N acc=0.0 tone_score=6.0 done=N
+          User:  Can you handle a complex multi-step task for me? Open Y
+          Agent: Of course! Here’s what I’m doing:
+• Checking weather
+• 
+  [Ep003 T2] diff=hard   mood=happy    tone=friendly reward= +34.0 correct=Y acc=1.0 tone_score=6.0 done=N
+          User:  Great! What else can you do?
+          Agent: Sure! I can help with many things like search, apps, re
+  [Ep003 T3] diff=hard   mood=happy    tone=friendly reward=  +7.0 correct=N acc=0.0 tone_score=6.0 done=N
+          User:  Great! What else can you do?
+          Agent: I can assist with tasks, apps, and information. Tell me
+  [Ep003 T4] diff=hard   mood=happy    tone=friendly reward= +34.0 correct=Y acc=1.0 tone_score=6.0 done=N
+          User:  Thanks! Can you do one more thing?
+          Agent: Sure! I can help with many things like search, apps, re
+  [Ep003 T5] diff=hard   mood=happy    tone=friendly reward= +34.0 correct=Y acc=1.0 tone_score=6.0 done=N
+          User:  Perfect. Now can you help with something else?
+          Agent: Sure! I can assist with tasks, apps, and information. T
+  [Ep003 T6] diff=hard   mood=happy    tone=friendly reward= +34.0 correct=Y acc=1.0 tone_score=6.0 done=Y
+          User:  Great! What else can you do?
+          Agent: Sure! I can help with many things like search, apps, re
+
+========================================================================
+  Episode 003 finished | difficulty=hard   | total_reward=+150.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 004 finished | difficulty=medium | total_reward=+134.50  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 005 finished | difficulty=medium | total_reward=+116.50  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 006 finished | difficulty=hard   | total_reward=+123.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 007 finished | difficulty=easy   | total_reward= +34.00  ★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 008 finished | difficulty=hard   | total_reward=+144.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 009 finished | difficulty=hard   | total_reward=+181.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 010 finished | difficulty=easy   | total_reward= +38.00  ★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 011 finished | difficulty=medium | total_reward=+134.50  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 012 finished | difficulty=medium | total_reward=+109.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 013 finished | difficulty=easy   | total_reward= +32.50  ★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 014 finished | difficulty=medium | total_reward=+136.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 015 finished | difficulty=hard   | total_reward=+177.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 016 finished | difficulty=hard   | total_reward=+150.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 017 finished | difficulty=hard   | total_reward=+177.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 018 finished | difficulty=medium | total_reward= +86.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 019 finished | difficulty=hard   | total_reward=+127.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 020 finished | difficulty=easy   | total_reward= +12.00  ★★
+========================================================================
+
+
+========================================================================
+  Episode 021 finished | difficulty=medium | total_reward= +82.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 022 finished | difficulty=easy   | total_reward= +16.00  ★★★
+========================================================================
+
+
+========================================================================
+  Episode 023 finished | difficulty=easy   | total_reward= +28.00  ★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 024 finished | difficulty=easy   | total_reward= +28.00  ★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 025 finished | difficulty=hard   | total_reward=+127.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 026 finished | difficulty=easy   | total_reward= +33.00  ★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 027 finished | difficulty=easy   | total_reward= +19.00  ★★★
+========================================================================
+
+
+========================================================================
+  Episode 028 finished | difficulty=medium | total_reward= +91.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 029 finished | difficulty=medium | total_reward=+109.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 030 finished | difficulty=easy   | total_reward= +45.00  ★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 031 finished | difficulty=easy   | total_reward= +16.00  ★★★
+========================================================================
+
+
+========================================================================
+  Episode 032 finished | difficulty=easy   | total_reward= +34.00  ★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 033 finished | difficulty=medium | total_reward= +88.50  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 034 finished | difficulty=easy   | total_reward= +59.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 035 finished | difficulty=easy   | total_reward= +34.00  ★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 036 finished | difficulty=medium | total_reward= +82.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 037 finished | difficulty=hard   | total_reward=+148.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 038 finished | difficulty=easy   | total_reward= +16.00  ★★★
+========================================================================
+
+
+========================================================================
+  Episode 039 finished | difficulty=easy   | total_reward= +34.00  ★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 040 finished | difficulty=medium | total_reward=+103.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 041 finished | difficulty=easy   | total_reward=  +6.00  ★
+========================================================================
+
+
+========================================================================
+  Episode 042 finished | difficulty=easy   | total_reward= +20.00  ★★★★
+========================================================================
+
+
+========================================================================
+  Episode 043 finished | difficulty=easy   | total_reward= +59.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 044 finished | difficulty=medium | total_reward= +91.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 045 finished | difficulty=easy   | total_reward= +20.00  ★★★★
+========================================================================
+
+
+========================================================================
+  Episode 046 finished | difficulty=hard   | total_reward=+117.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 047 finished | difficulty=hard   | total_reward=+138.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 048 finished | difficulty=medium | total_reward= +97.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 049 finished | difficulty=hard   | total_reward= +78.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  Episode 050 finished | difficulty=hard   | total_reward=+148.00  ★★★★★★★★★★
+========================================================================
+
+
+========================================================================
+  TRAINING COMPLETE — FINAL SUMMARY
+========================================================================
+  total_interactions              : 174
+  total_episodes                  : 50
+  avg_reward_per_turn             : 24.506
+  avg_episode_reward              : 85.28
+  accuracy_rate                   : 0.615
+  mood_distribution               : {'confused': 44, 'happy': 118, 'angry': 12}
+  worst_topics                    : [('time', 5.4), ('multi_step', 18.571428571428573), ('help', 22.352941176470587)]
+
+  Reward trend (1st half avg=+103.14 → 2nd half avg=+67.42): ↓ DECLINING
+========================================================================

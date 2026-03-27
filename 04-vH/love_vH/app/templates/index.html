@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LOVE AI Assistant</title>
+</head>
+<body>
+
+<h1>LOVE AI Assistant</h1>
+
+<input type="text" id="message" placeholder="Type message..." />
+<button onclick="sendMessage()">Send</button>
+
+<p><b>Response:</b> <span id="response"></span></p>
+<p><b>Reward:</b> <span id="reward"></span></p>
+
+<script>
+async function sendMessage() {
+    const message = document.getElementById("message").value;
+
+    const res = await fetch("/chat", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message: message })
+    });
+
+    const data = await res.json();
+
+    document.getElementById("response").innerText = data.response;
+    document.getElementById("reward").innerText = data.reward;
+}
+</script>
+
+</body>
+</html>
