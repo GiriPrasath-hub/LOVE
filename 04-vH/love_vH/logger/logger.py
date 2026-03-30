@@ -1,5 +1,5 @@
 # ================================================================
-#  love_vH — logger/logger.py
+#  love_vH - logger/logger.py
 #  FINAL FIXED VERSION (ACCURACY + CLEAN LOGGING)
 # ================================================================
 
@@ -22,7 +22,7 @@ class EpisodeLogger:
             try:
                 self._fh = open(self.cfg.log_path, "w", encoding="utf-8")
                 self._write(
-                    f"# LOVE vH Training Log — "
+                    f"# LOVE vH Training Log - "
                     f"started {datetime.datetime.now().isoformat()}\n"
                 )
             except OSError as exc:
@@ -31,7 +31,7 @@ class EpisodeLogger:
                     file=sys.stderr,
                 )
 
-    # ── STEP LOGGING ─────────────────────────────────────────────
+    #    STEP LOGGING                                              
 
     def log_step(
         self,
@@ -68,7 +68,7 @@ class EpisodeLogger:
         # Safe difficulty
         difficulty = str(info.get("difficulty", "?"))
 
-        # ✅ FIXED ACCURACY FIELD
+        #  FIXED ACCURACY FIELD
         try:
             acc_score = float(breakdown.get("accuracy_score", 0))
         except:
@@ -95,11 +95,11 @@ class EpisodeLogger:
 
         self._write(line)
 
-    # ── EPISODE LOG ─────────────────────────────────────────────
+    #    EPISODE LOG                                              
 
     def log_episode(self, episode: int, total_reward: float, difficulty: str) -> None:
         bar = "=" * 72
-        stars = "★" * min(int(max(total_reward, 0) / 5), 10)
+        stars = "*" * min(int(max(total_reward, 0) / 5), 10)
 
         self._write(
             f"\n{bar}\n"
@@ -109,13 +109,13 @@ class EpisodeLogger:
             f"{bar}\n"
         )
 
-    # ── FINAL SUMMARY ───────────────────────────────────────────
+    #    FINAL SUMMARY                                            
 
     def log_summary(self, summary: dict[str, Any]) -> None:
         bar = "=" * 72
 
         self._write(f"\n{bar}")
-        self._write("  TRAINING COMPLETE — FINAL SUMMARY")
+        self._write("  TRAINING COMPLETE - FINAL SUMMARY")
         self._write(bar)
 
         for key, val in summary.items():
@@ -131,17 +131,17 @@ class EpisodeLogger:
             first = sum(rewards[:mid]) / max(mid, 1)
             second = sum(rewards[mid:]) / max(mid, 1)
 
-            trend = "↑ IMPROVING" if second > first else "↓ DECLINING"
+            trend = "  IMPROVING" if second > first else "  DECLINING"
 
             self._write(
-                f"\n  Reward trend (1st half avg={first:+.2f} → "
+                f"\n  Reward trend (1st half avg={first:+.2f} -> "
                 f"2nd half avg={second:+.2f}): {trend}"
             )
 
         self._write(bar)
         self._close()
 
-    # ── INTERNAL ────────────────────────────────────────────────
+    #    INTERNAL                                                 
 
     def _write(self, msg: str) -> None:
         print(msg)

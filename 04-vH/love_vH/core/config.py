@@ -1,5 +1,5 @@
 # ================================================================
-#  love_vH — core/config.py
+#  love_vH - core/config.py
 #  Central configuration for the entire RL environment.
 # ================================================================
 

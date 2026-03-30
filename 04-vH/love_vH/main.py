@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # ================================================================
-#  love_vH — main.py
+#  love_vH - main.py
 #  Entry point.  Initialises environment and agent, runs the
 #  training loop, and prints final results.
 #
@@ -22,7 +22,7 @@ from core.controller import Controller
 def print_header() -> None:
     bar = "=" * 72
     print(bar)
-    print("  LOVE vH — Hackathon Edition")
+    print("  LOVE vH - Hackathon Edition")
     print("  OpenEnv-Compatible RL Environment for AI Assistant Training")
     print(bar)
     print(f"  Episodes      : {CFG.num_episodes}")

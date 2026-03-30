@@ -1,4 +1,4 @@
-# love_vH — requirements
+# love_vH - requirements
 # Pure Python standard library only.
 # No external dependencies required.
 #
@@ -8,3 +8,6 @@
 #   numpy          # vectorised reward computation
 #   gymnasium      # drop-in Gym compatibility layer
 #   torch          # replace rule-based policy with neural network
+flask
+numpy
+gunicorn

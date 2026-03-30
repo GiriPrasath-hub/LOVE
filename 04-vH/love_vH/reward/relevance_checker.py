@@ -1,5 +1,5 @@
 # ================================================================
-#  love_vH — reward/relevance_checker.py
+#  love_vH - reward/relevance_checker.py
 #  Checks whether the agent's response is relevant to the
 #  user's topic, even if not perfectly correct.
 # ================================================================
@@ -7,7 +7,7 @@
 from __future__ import annotations
 
 
-# ── Topic → relevance signal words ────────────────────────────
+#    Topic -> relevance signal words                             
 
 _TOPIC_SIGNALS: dict[str, list[str]] = {
     "time"       : ["time", "clock", "hour", "minute", "it's", "currently"],
@@ -31,10 +31,10 @@ class RelevanceChecker:
 
     Scoring
     -------
-    relevant     → +8   (response contains topic signals)
-    not relevant → +0   (no topic signals found)
+    relevant     -> +8   (response contains topic signals)
+    not relevant -> +0   (no topic signals found)
 
-    Note: relevance does NOT imply correctness — a response can be
+    Note: relevance does NOT imply correctness - a response can be
     relevant (mentions right domain) but still wrong (wrong answer).
     """
 

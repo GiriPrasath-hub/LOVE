@@ -1,0 +1,15 @@
+name: love-vh-environment
+description: RL-based AI assistant environment with reward shaping and human feedback
+version: 1.0
+
+entry_point: openenv.environment:OpenEnvWrapper
+
+observation_space:
+  type: dict
+
+action_space:
+  type: dict
+
+reward_range: [-20, 50]
+
+max_steps: 6

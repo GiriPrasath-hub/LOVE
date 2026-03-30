@@ -1,5 +1,5 @@
 # ================================================================
-#  love_vH — reward/accuracy_checker.py
+#  love_vH - reward/accuracy_checker.py
 #  Grades whether the agent's response correctly addresses
 #  the user's request based on expected keyword matching.
 # ================================================================
@@ -18,7 +18,7 @@ class AccuracyChecker:
         response = response.replace("starting", "open")
         response = response.replace("playing", "play")
 
-        # ── If no keywords → fallback ─────────────
+        #    If no keywords -> fallback              
         if not expected_keywords:
             if topic in response:
                 return {"correct": True, "partial": False}
@@ -39,7 +39,7 @@ class AccuracyChecker:
 
         total = len(expected_keywords)
 
-        # ── Decision logic ───────────────────────
+        #    Decision logic                        
         if matches >= max(1, total * 0.3):
             return {"correct": True, "partial": False}
 

@@ -1,5 +1,5 @@
 # ================================================================
-#  love_vH — reward/tone_analyzer.py
+#  love_vH - reward/tone_analyzer.py
 #  Evaluates whether the agent's chosen tone matches the
 #  user's mood and the situation.
 # ================================================================
@@ -7,8 +7,8 @@
 from __future__ import annotations
 
 
-# ── Tone-mood compatibility matrix ────────────────────────────
-# Maps (agent_tone, user_mood) → "good" | "neutral" | "bad"
+#    Tone-mood compatibility matrix                             
+# Maps (agent_tone, user_mood) -> "good" | "neutral" | "bad"
 
 _COMPAT: dict[tuple[str, str], str] = {
     # friendly tone
@@ -46,9 +46,9 @@ class ToneAnalyzer:
 
     Scoring
     -------
-    "good"    → +5
-    "neutral" → +0
-    "bad"     → -6
+    "good"    -> +5
+    "neutral" -> +0
+    "bad"     -> -6
     Additionally adjusted by presence of positive/negative language.
     """
 
@@ -83,7 +83,7 @@ class ToneAnalyzer:
             if quality != "bad":
                 quality = "neutral" if quality == "good" else "bad"
 
-        # Length check — very short responses are never "good" for hard moods
+        # Length check - very short responses are never "good" for hard moods
         if len(response.split()) < 4 and mood_lower in ("angry", "confused"):
             quality     = "bad"
             adjustment -= 1.0

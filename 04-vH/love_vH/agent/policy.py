@@ -69,14 +69,14 @@ class LearningPolicy:
 
     def get_best_tone(self, topic: str, default="friendly") -> str:
 
-        # ── Decay exploration (VERY IMPORTANT) ───────────────
+        
         self.epsilon = max(self.min_epsilon, self.epsilon * self.decay)
 
-        # ── Exploration ──────────────────────────────────────
+        
         if random.random() < self.epsilon:
             return random.choice(["friendly", "helpful", "formal"])
 
-        # ── Exploitation ─────────────────────────────────────
+        
         best_tone = default
         best_score = float("-inf")
 

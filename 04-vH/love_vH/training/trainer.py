@@ -1,9 +1,9 @@
 # ================================================================
-#  love_vH — training/trainer.py
+#  love_vH - training/trainer.py
 #  Runs the RL training loop: episodes, steps, reward logging.
 #
 #  Loop structure
-#  ──────────────
+#                
 #  for episode in 1..num_episodes:
 #      state = env.reset()
 #      while not done:
@@ -52,7 +52,7 @@ class Trainer:
         self.cfg    = cfg or CFG
         self.memory = MemoryStore()
 
-    # ── Public API ────────────────────────────────────────────
+    #    Public API                                             
 
     def run(self) -> dict[str, Any]:
         """
@@ -66,13 +66,13 @@ class Trainer:
 
         for ep in range(1, self.cfg.num_episodes + 1):
 
-            # ── Episode start ─────────────────────────────────
+            #    Episode start                                  
             state = self.env.reset()
             self.agent.reset_stats()
             episode_reward = 0.0
             done           = False
 
-            # ── Step loop ─────────────────────────────────────
+            #    Step loop                                      
             while not done:
                 action = self.agent.act(state)
 
@@ -98,12 +98,12 @@ class Trainer:
                     self.logger.log_step(ep, state, action, reward, done, info)
                 state = next_state
 
-            # ── Episode end ───────────────────────────────────
+            #    Episode end                                    
             self.memory.record_episode_reward(episode_reward)
             all_episode_rewards.append(episode_reward)
             self.logger.log_episode(ep, episode_reward, info["difficulty"])
 
-        # ── Training complete ─────────────────────────────────
+        #    Training complete                                  
         summary = self.memory.summary()
         summary["all_episode_rewards"] = all_episode_rewards
         self.logger.log_summary(summary)

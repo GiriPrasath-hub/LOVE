@@ -1,14 +1,14 @@
 # ================================================================
-#  love_vH — environment/env.py
+#  love_vH - environment/env.py
 #  OpenEnv-compatible RL environment for the LOVE assistant.
 #
 #  Interface
-#  ─────────
-#    env.reset()          → state: dict
-#    env.step(action)     → (next_state, reward, done, info)
+#           
+#    env.reset()          -> state: dict
+#    env.step(action)     -> (next_state, reward, done, info)
 #
 #  State schema
-#  ─────────────
+#               
 #    {
 #      "user_message"  : str,
 #      "mood"          : "happy" | "angry" | "confused",
@@ -18,7 +18,7 @@
 #    }
 #
 #  Action schema
-#  ─────────────
+#               
 #    {
 #      "response" : str,
 #      "tone"     : "friendly" | "formal" | "helpful",
@@ -58,7 +58,7 @@ class LoveEnv:
         self._current_user_msg: UserMessage | None = None
         self._done = True
 
-    # ── OpenEnv API ───────────────────────────────────────────
+    #    OpenEnv API                                            
 
     def reset(self) -> dict[str, Any]:
         """
@@ -94,14 +94,14 @@ class LoveEnv:
         next_state : dict
         reward     : float
         done       : bool
-        info       : dict   (diagnostic data — not used for training)
+        info       : dict   (diagnostic data - not used for training)
         """
         if self._done:
             raise RuntimeError("Episode is done. Call reset() before step().")
         if self._current_user_msg is None:
             raise RuntimeError("Environment not initialised. Call reset() first.")
 
-        # ── Grade the action ──────────────────────────────────
+        #    Grade the action                                   
         result = self._reward.compute(
             action      = action,
             user_msg    = self._current_user_msg,
@@ -112,7 +112,7 @@ class LoveEnv:
 
         turn = self._tasks.advance_turn()
 
-        # ── Record in context ─────────────────────────────────
+        #    Record in context                                  
         self._ctx.record(Turn(
             turn_number  = turn,
             user_message = self._current_user_msg.message,
@@ -122,10 +122,10 @@ class LoveEnv:
             difficulty   = self._current_user_msg.difficulty,
         ))
 
-        # ── Check done ────────────────────────────────────────
+        #    Check done                                         
         self._done = self._tasks.is_done(reward, correct)
 
-        # ── Generate next state ───────────────────────────────
+        #    Generate next state                                
         if self._done:
             next_state = self._build_state(self._current_user_msg, turn=turn)
         else:
@@ -146,7 +146,7 @@ class LoveEnv:
 
         return next_state, reward, self._done, info
 
-    # ── Gym-style helpers ─────────────────────────────────────
+    #    Gym-style helpers                                      
 
     def render(self, mode: str = "text") -> None:
         """Print the current state to stdout."""
@@ -171,7 +171,7 @@ class LoveEnv:
     def action_space_keys(self) -> list[str]:
         return ["response", "tone"]
 
-    # ── Internal ──────────────────────────────────────────────
+    #    Internal                                               
 
     def _build_state(self, msg: UserMessage, turn: int) -> dict[str, Any]:
         return {

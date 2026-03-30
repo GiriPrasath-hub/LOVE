@@ -1,5 +1,5 @@
 # ================================================================
-#  love_vH — core/controller.py
+#  love_vH - core/controller.py
 #  Orchestrates environment, agent, and training loop.
 #  Provides the single entry-point used by main.py.
 # ================================================================

@@ -1,5 +1,5 @@
 # ================================================================
-#  love_vH — agent/response_generator.py
+#  love_vH - agent/response_generator.py
 #  Rule-based response generator.  No external API required.
 #  Produces realistic assistant responses from template pools.
 # ================================================================
@@ -10,7 +10,7 @@ import random
 from typing import Any
 
 
-# ── Response templates per topic ──────────────────────────────
+
 
 _RESPONSES: dict[str, list[str]] = {
     "time": [
@@ -19,9 +19,9 @@ _RESPONSES: dict[str, list[str]] = {
         "Right now it's {time}. Can I assist with something else?",
     ],
     "weather": [
-        "The weather today looks partly cloudy with a high of 22°C. Should be a nice day!",
-        "Current conditions: sunny with light winds, around 24°C. Great day to be outside!",
-        "Looks like there's a chance of rain this afternoon, temperatures around 18°C.",
+        "The weather today looks partly cloudy with a high of 22 deg C. Should be a nice day!",
+        "Current conditions: sunny with light winds, around 24 deg C. Great day to be outside!",
+        "Looks like there's a chance of rain this afternoon, temperatures around 18 deg C.",
     ],
     "open_app": [
         "Opening {app} for you right now!",
@@ -49,7 +49,7 @@ _RESPONSES: dict[str, list[str]] = {
         "I'm really sorry about that! I understand your frustration and I want to help fix this. What can I do?",
         "You're absolutely right to be upset, and I sincerely apologize. Let me make this right for you.",
         "I'm sorry I haven't met your expectations. I'm here to help and I'll do better. What do you need?",
-        "I completely understand your frustration. I apologize for the trouble — let me fix this right away.",
+        "I completely understand your frustration. I apologize for the trouble - let me fix this right away.",
     ],
     "help": [
         "Of course! Let me help you step by step. First, let's try restarting the application.",
@@ -59,7 +59,7 @@ _RESPONSES: dict[str, list[str]] = {
     ],
     "multi_step": [
         "Sure! I'll do this step-by-step:\n1. Opening YouTube\n2. Playing music\n3. Setting reminder",
-        "Here’s what I’m doing:\n• Checking weather\n• Opening Maps\n• Updating your schedule",
+        "Here is what I am doing:\n  Checking weather\n  Opening Maps\n  Updating your schedule",
     ],
     "follow_up": [
         "Sure! I can help with many things like search, apps, reminders. What do you need?",
@@ -73,7 +73,7 @@ _RESPONSES: dict[str, list[str]] = {
     ],
 }
 
-# ── Tone prefixes ─────────────────────────────────────────────
+#    Tone prefixes                                              
 
 _TONE_PREFIX: dict[str, list[str]] = {
     "friendly": ["Hey! ", "Sure! ", "Of course! ", "Alright! ", ""],
@@ -81,7 +81,7 @@ _TONE_PREFIX: dict[str, list[str]] = {
     "formal"  : ["Certainly. ", "Understood. ", "I will handle that. ", "Proceeding now. ", ""],
 }
 
-# ── App name extraction hints ─────────────────────────────────
+#    App name extraction hints                                  
 
 _APP_HINTS: dict[str, str] = {
     "youtube"   : "YouTube",
@@ -103,7 +103,7 @@ class ResponseGenerator:
     """
     Generates rule-based assistant responses given a state and tone.
 
-    No external API — uses template expansion with light context
+    No external API - uses template expansion with light context
     awareness (extracts app names, handles moods, etc.).
     """
 

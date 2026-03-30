@@ -1,8 +1,3 @@
-# ================================================================
-#  love_vH — reward/reward_system.py
-#  Improved reward system with adaptive scoring + penalties
-# ================================================================
-
 from __future__ import annotations
 from typing import Any
 
@@ -14,10 +9,6 @@ from reward.tone_analyzer import ToneAnalyzer
 
 
 class RewardSystem:
-    """
-    Computes the composite reward for one agent action.
-    """
-
     def __init__(self, config: EnvConfig | None = None) -> None:
         self.cfg = config or CFG
         self._accuracy = AccuracyChecker()
@@ -25,20 +16,15 @@ class RewardSystem:
         self._tone = ToneAnalyzer()
         self._human = HumanFeedback()
 
-    def compute(
-        self,
-        action: dict[str, Any],
-        user_msg: Any,
-        context: list[dict],
-    ) -> dict[str, Any]:
+    def compute(self, action: dict[str, Any], user_msg: Any, context: list[dict]) -> dict[str, Any]:
 
         response = str(action.get("response", ""))
         tone = str(action.get("tone", "friendly"))
 
-        # ── Length bonus ─────────────────────────────
+        # Length bonus
         length_bonus = 1.5 if len(response.split()) > 8 else 0.0
 
-        # ── Sub-checks ───────────────────────────────
+        # Sub checks
         acc = self._accuracy.check(
             response=response,
             expected_keywords=user_msg.expected_keywords,
@@ -56,64 +42,40 @@ class RewardSystem:
             user_mood=getattr(user_msg, "mood", "happy"),
         )
 
-        # ── Human Feedback ───────────────────────────
         human_score = self._human.evaluate(response, user_msg)
 
-        # ── Accuracy scoring ─────────────────────────
-        if acc.get("correct", False):
-            accuracy_reward = +15
-        elif acc.get("partial", False):
-            accuracy_reward = +6
-        else:
-            accuracy_reward = -12
+        # Accuracy
+        accuracy_reward = 15 if acc.get("correct") else (6 if acc.get("partial") else -12)
 
-        # ── Relevance scoring ────────────────────────
-        if rel.get("relevant", False):
-            relevance_reward = +10
-        elif rel.get("partial", False):
-            relevance_reward = +5
-        else:
-            relevance_reward = -5
+        # Relevance
+        relevance_reward = 10 if rel.get("relevant") else (5 if rel.get("partial") else -5)
 
-        # ── Tone scoring ─────────────────────────────
+        # Tone
         tone_quality = ton.get("quality", "neutral")
         user_mood = getattr(user_msg, "mood", "happy")
 
         if tone_quality == "good":
-            tone_reward = +6
-            if user_mood == "angry":
-                tone_reward += 2
-
+            tone_reward = 6 + (2 if user_mood == "angry" else 0)
         elif tone_quality == "neutral":
-            tone_reward = 0
-            if user_mood == "angry":
-                tone_reward -= 2
-
+            tone_reward = -2 if user_mood == "angry" else 0
         else:
             tone_reward = -8
 
-        # ── Repetition penalty ───────────────────────
+        # Repetition penalty
         repetition_penalty = 0
         if context:
-            try:
-                last_action = context[-1].get("action", {})
-                last_response = str(last_action.get("response", "")).strip()
+            last_response = str(context[-1].get("action", {}).get("response", "")).strip()
+            if response.strip() == last_response:
+                repetition_penalty = -5
 
-                if response.strip() == last_response:
-                    repetition_penalty = -5
-            except:
-                repetition_penalty = 0
-
-        # ── Follow-up penalty ────────────────────────
+        # Follow-up penalty
         followup_penalty = 0
         if getattr(user_msg, "topic", "") == "follow_up":
             if "what else" in response.lower():
                 followup_penalty = -3
 
-        # ✅ FIX: combine penalties
         total_penalty = repetition_penalty + followup_penalty
 
-        # ── Final total ──────────────────────────────
         total = (
             accuracy_reward
             + relevance_reward
@@ -134,7 +96,4 @@ class RewardSystem:
             "repetition_penalty": repetition_penalty,
             "followup_penalty": followup_penalty,
             "length_bonus": length_bonus,
-            "accuracy": acc,
-            "relevance": rel,
-            "tone": ton,
         }

@@ -1,0 +1,19 @@
+[project]
+name = "love-vh"
+version = "0.1.0"
+description = "LOVE vH Adaptive AI Environment for OpenEnv Hackathon"
+authors = [
+    { name = "Giri Prasath" }
+]
+requires-python = ">=3.10"
+
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "openenv-core",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

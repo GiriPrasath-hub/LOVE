@@ -1,5 +1,5 @@
 # ================================================================
-#  love_vH — memory/memory_store.py
+#  love_vH - memory/memory_store.py
 #  Persistent cross-episode memory store.
 #
 #  Stores all interactions across episodes and supports:
@@ -44,7 +44,7 @@ class MemoryStore:
         self._topic_rewards: dict[str, list[float]] = defaultdict(list)
         self._mood_counts:   dict[str, int]          = defaultdict(int)
 
-    # ── Write ─────────────────────────────────────────────────
+    #    Write                                                  
 
     def store(
         self,
@@ -77,7 +77,7 @@ class MemoryStore:
     def record_episode_reward(self, total_reward: float) -> None:
         self._episode_rewards.append(total_reward)
 
-    # ── Read ──────────────────────────────────────────────────
+    #    Read                                                   
 
     def recent(self, n: int = 5) -> list[Interaction]:
         """Return the n most recent interactions."""
@@ -98,7 +98,7 @@ class MemoryStore:
         }
         return sorted(avgs.items(), key=lambda x: x[1])[:top_n]
 
-    # ── Statistics ────────────────────────────────────────────
+    #    Statistics                                             
 
     def summary(self) -> dict[str, Any]:
         if not self._interactions:

@@ -1,14 +1,14 @@
 # ================================================================
-#  love_vH — api/openenv_adapter.py
+#  love_vH - api/openenv_adapter.py
 #  Wraps LoveEnv with strict OpenEnv / OpenAI Gym-compatible
 #  interface validation and introspection.
 #
 #  Guarantees
-#  ──────────
-#  • reset() always returns a dict state
-#  • step(action) always returns exactly (state, float, bool, dict)
-#  • action format is validated before dispatch
-#  • observation and action space metadata exposed as attributes
+#            
+#    reset() always returns a dict state
+#    step(action) always returns exactly (state, float, bool, dict)
+#    action format is validated before dispatch
+#    observation and action space metadata exposed as attributes
 # ================================================================
 
 from __future__ import annotations
@@ -39,8 +39,8 @@ class OpenEnvAdapter:
     OpenEnv-compatible wrapper around LoveEnv.
 
     Conforms to the standard interface:
-        reset()     → state: dict
-        step(action) → (state, reward: float, done: bool, info: dict)
+        reset()      state: dict
+        step(action) (state, reward: float, done: bool, info: dict)
         render()
         close()
 
@@ -80,7 +80,7 @@ class OpenEnvAdapter:
         self._episode_count = 0
         self._step_count    = 0
 
-    # ── OpenEnv interface ─────────────────────────────────────
+    #    OpenEnv interface                                      
 
     def reset(self) -> dict[str, Any]:
         """
@@ -129,7 +129,7 @@ class OpenEnvAdapter:
         assert isinstance(info, dict), (
             f"info must be dict, got {type(info)}"
         )
-        self._validate_state(next_state, context="step() → next_state")
+        self._validate_state(next_state, context="step() -> next_state")
 
         self._step_count += 1
         return next_state, float(reward), done, info
@@ -142,7 +142,7 @@ class OpenEnvAdapter:
         """Release environment resources."""
         self._env.close()
 
-    # ── Introspection ─────────────────────────────────────────
+    #    Introspection                                          
 
     @property
     def unwrapped(self) -> LoveEnv:
@@ -164,7 +164,7 @@ class OpenEnvAdapter:
             f"steps={self._step_count})"
         )
 
-    # ── Validation helpers ────────────────────────────────────
+    #    Validation helpers                                     
 
     def _validate_action(self, action: Any) -> None:
         assert isinstance(action, dict), (

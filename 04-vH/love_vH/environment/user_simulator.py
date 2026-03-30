@@ -1,5 +1,5 @@
 # ================================================================
-#  love_vH — environment/user_simulator.py
+#  love_vH - environment/user_simulator.py
 #  Generates realistic user messages paired with moods and
 #  ground-truth expected topics for reward grading.
 # ================================================================
@@ -14,11 +14,11 @@ Mood = Literal["happy", "angry", "confused"]
 Difficulty = Literal["easy", "medium", "hard"]
 
 
-# ── Message templates per (difficulty, mood) ──────────────────
+#    Message templates per (difficulty, mood)                   
 
 _TEMPLATES: dict[tuple[Difficulty, Mood], list[dict]] = {
 
-    # ── Easy ─────────────────────────────────────────────────
+    #    Easy                                                  
     ("easy", "happy"): [
         {"message": "Hey! Can you tell me what time it is?",
          "topic": "time", "expected_keywords": ["time", "clock", "hour"]},
@@ -46,7 +46,7 @@ _TEMPLATES: dict[tuple[Difficulty, Mood], list[dict]] = {
          "topic": "open_app", "expected_keywords": ["calculator", "open"]},
     ],
 
-    # ── Medium ────────────────────────────────────────────────
+    #    Medium                                                 
     ("medium", "happy"): [
         {"message": "Can you look up something for me? I forgot the name though.",
          "topic": "search", "expected_keywords": ["search", "find", "lookup"]},
@@ -72,7 +72,7 @@ _TEMPLATES: dict[tuple[Difficulty, Mood], list[dict]] = {
          "topic": "open_app", "expected_keywords": ["open", "app", "launch"]},
     ],
 
-    # ── Hard ──────────────────────────────────────────────────
+    #    Hard                                                   
     ("hard", "angry"): [
         {"message": "You're completely useless! You never do what I ask!",
          "topic": "complaint", "expected_keywords": ["sorry", "apologize", "help", "fix"]},
@@ -94,7 +94,7 @@ _TEMPLATES: dict[tuple[Difficulty, Mood], list[dict]] = {
     ("hard", "happy"): [
         {"message": "Can you handle a complex multi-step task for me? Open YouTube, search for lofi music, and set a 1 hour reminder.",
          "topic": "multi_step", "expected_keywords": ["youtube", "search", "reminder", "lofi"]},
-        {"message": "I need you to find the weather, open maps, and check my calendar — all right now.",
+        {"message": "I need you to find the weather, open maps, and check my calendar - all right now.",
          "topic": "multi_step", "expected_keywords": ["weather", "maps", "calendar"]},
     ],
 }
@@ -110,6 +110,8 @@ class UserMessage:
     expected_keywords  : list[str]
     turn               : int = 0
 
+    if turn == 0:
+        force_initial_message = True
 
 class UserSimulator:
     """
@@ -118,7 +120,7 @@ class UserSimulator:
     Each call to generate() returns a fresh UserMessage sampled
     from the template pool for the given difficulty level.
     """
-
+    
     def __init__(self, rng_seed: int | None = None) -> None:
         self._rng = random.Random(rng_seed)
         self._all_moods: list[Mood] = ["happy", "angry", "confused"]

@@ -1,5 +1,5 @@
 # ================================================================
-#  love_vH — reward/human_feedback.py
+#  love_vH - reward/human_feedback.py
 #  Simulated human/judge feedback system
 # ================================================================
 
@@ -19,23 +19,23 @@ class HumanFeedback:
 
         score = 0.0
 
-        # ── Reward clarity ─────────────────────────────
+        #    Reward clarity                              
         if len(response.split()) > 6:
             score += 1.5
 
-        # ── Penalize vague responses ───────────────────
+        #    Penalize vague responses                    
         vague_words = ["maybe", "something", "try again", "not sure"]
         if any(w in response for w in vague_words):
             score -= 2
 
-        # ── Reward empathy for angry users ─────────────
+        #    Reward empathy for angry users              
         if mood == "angry":
             if "sorry" in response or "apologize" in response:
                 score += 2
             else:
                 score -= 2
 
-        # ── Penalize repetition ────────────────────────
+        #    Penalize repetition                         
         if response.count("let me help") > 1:
             score -= 1.5
 

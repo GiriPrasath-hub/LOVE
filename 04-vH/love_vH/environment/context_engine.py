@@ -1,5 +1,5 @@
 # ================================================================
-#  love_vH — environment/context_engine.py
+#  love_vH - environment/context_engine.py
 #  Maintains and retrieves conversational context for the agent.
 # ================================================================
 
